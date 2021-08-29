@@ -1,10 +1,10 @@
 <template>
-  <header class="w-full flex justify-between items-center">
-    <h1 class="text-xl font-semibold text-gray-700 dark:text-white">
+  <header class="w-full flex justify-between items-center mb-3">
+    <h1 class="text-lg md:text-xl font-bold text-gray-600 dark:text-white">
       Github users finder
     </h1>
     <button
-      class="flex items-center font-medium text-gray-500 dark:text-white"
+      class="btn"
       @click="themeMode"
     >
       {{ darkMode }}
@@ -67,6 +67,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>
