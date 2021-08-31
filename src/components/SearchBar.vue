@@ -1,6 +1,6 @@
 <template>
   <form method="post" class="w-full my-4">
-    <div class="bg-white dark:bg-opacity-20 flex items-center rounded-lg p-2">
+    <div class="bg-white dark:bg-opacity-10 flex items-center rounded-lg p-2">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="h-6 w-6 lg:ml-2 text-blue-500"
