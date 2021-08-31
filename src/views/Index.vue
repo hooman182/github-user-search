@@ -14,14 +14,16 @@
   >
     <TheHeader />
     <SearchBar />
+    <TheContent />
   </div>
 </template>
 
 <script>
 import TheHeader from "@/components/TheHeader";
 import SearchBar from "@/components/SearchBar";
+import TheContent from "@/components/TheContent";
 export default {
   name: "Index",
-  components: { TheHeader, SearchBar },
+  components: { TheHeader, SearchBar, TheContent },
 };
 </script>
