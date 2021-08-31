@@ -32,15 +32,20 @@
             Joined {{ userData.data.created_at.slice(0, 10) }}
           </p>
           <a
-            :href="userData.data.url"
+            :href="'https://github.com/' + userData.data.login"
             class="text-blue-500 font-medium order-2 lg:order-3"
+            target="_blank"
           >
             @{{ userData.data.login }}
           </a>
         </div>
 
         <p class="hidden lg:block text-gray-400 dark:text-gray-300 font-medium">
-          <span class="text-gray-400 dark:text-gray-500" v-if="!userData.data.bio">Doesn't have bio</span>
+          <span
+            class="text-gray-400 dark:text-gray-500"
+            v-if="!userData.data.bio"
+            >Bio doesn't exist</span
+          >
           {{ userData.data.bio }}
         </p>
       </div>
@@ -148,7 +153,7 @@
         </svg>
         <a
           :href="userData.data.blog"
-          class="text-gray-500 dark:text-gray-300"
+          class="text-gray-500 dark:text-gray-300 truncate"
           v-if="userData.data.blog"
           >{{ userData.data.blog }}</a
         >
@@ -187,8 +192,11 @@
 <script>
 export default {
   name: "TheContent",
-  setup() {
-
+  props: {
+    userData: {
+      type: Object,
+      required: true,
+    },
   },
 };
 </script>
