@@ -55,7 +55,6 @@ export default {
         localStorage.removeItem("theme");
         darkMode.value = "Dark";
       }
-      console.log(localStorage.theme);
     }
     onBeforeMount(() => {
       if (localStorage.theme == "dark") {
