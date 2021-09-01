@@ -9,7 +9,7 @@
       grid grid-cols-4
       gap-5
     "
-    v-if="userData.data && userData.status==200"
+    v-if="userData.data && userData.status == 200"
   >
     <!-- start header -->
     <div class="grid grid-cols-4 gap-x-5 col-start-1 col-end-5 row-span-1">
@@ -24,11 +24,27 @@
       <div class="grid grid-cols-1 gap-2 col-start-2 col-end-5">
         <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
           <h1
-            class="text-xl lg:text-2xl font-bold text-gray-700 dark:text-gray-200 order-1"
+            class="
+              text-xl
+              lg:text-2xl
+              font-bold
+              text-gray-700
+              dark:text-gray-200
+              order-1
+            "
           >
             {{ userData.data.name }}
           </h1>
-          <p class="text-sm lg:text-base text-gray-400 order-3 lg:order-2 lg:justify-self-end">
+          <p
+            class="
+              text-sm
+              lg:text-base
+              text-gray-400
+              order-3
+              lg:order-2
+              lg:justify-self-end
+            "
+          >
             Joined {{ userData.data.created_at.slice(0, 10) }}
           </p>
           <a
@@ -40,24 +56,19 @@
           </a>
         </div>
 
-        <p class="hidden lg:block text-gray-400 dark:text-gray-300 font-medium">
+        <p class="hidden lg:block text">
           <span
-            class="text-gray-400 dark:text-gray-500"
+            class="text"
             v-if="!userData.data.bio"
             >Bio doesn't exist</span
           >
           {{ userData.data.bio }}
         </p>
       </div>
-      <p
-        class="
-          lg:hidden
-          col-start-1 col-end-5
-          text-gray-400
-          dark:text-gray-300
-          font-medium
-        "
-      >
+      <p class="lg:hidden col-start-1 col-end-5 text">
+        <span class="text" v-if="!userData.data.bio"
+          >Bio doesn't exist</span
+        >
         {{ userData.data.bio }}
       </p>
     </div>
