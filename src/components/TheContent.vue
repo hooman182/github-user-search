@@ -178,7 +178,7 @@
           class="text-gray-500 dark:text-gray-300"
           v-if="userData.data.company"
         >
-          @{{ userData.data.company }}
+          {{ userData.data.company }}
         </span>
         <span class="text-gray-500 dark:text-gray-300" v-else>
           Not Available
