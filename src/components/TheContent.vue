@@ -24,11 +24,11 @@
       <div class="grid grid-cols-1 gap-2 col-start-2 col-end-5">
         <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
           <h1
-            class="text-2xl font-bold text-gray-700 dark:text-gray-200 order-1"
+            class="text-xl lg:text-2xl font-bold text-gray-700 dark:text-gray-200 order-1"
           >
             {{ userData.data.name }}
           </h1>
-          <p class="text-gray-400 order-3 lg:order-2">
+          <p class="text-sm lg:text-base text-gray-400 order-3 lg:order-2 lg:justify-self-end">
             Joined {{ userData.data.created_at.slice(0, 10) }}
           </p>
           <a
