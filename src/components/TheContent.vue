@@ -9,7 +9,7 @@
       grid grid-cols-4
       gap-5
     "
-    v-if="userData.data"
+    v-if="userData.data && userData.status==200"
   >
     <!-- start header -->
     <div class="grid grid-cols-4 gap-x-5 col-start-1 col-end-5 row-span-1">
