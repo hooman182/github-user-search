@@ -4,12 +4,14 @@
       h-screen
       w-full
       lg:w-1/2
-      p-5
+      pt-6
+      px-2.5
       lg:p-0
       lg:m-auto
       flex flex-col
       items-center
-      justify-center
+      justify-start
+      lg:justify-center
     "
   >
     <TheHeader />
