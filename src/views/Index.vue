@@ -15,21 +15,7 @@
     <TheHeader />
     <SearchBar @searchHandle="getSearchData" />
     <TheContent :userData="githubData" />
-    <p
-      class="text-gray-400 font-semibold text-lg"
-      v-if="!githubData.data && !githubData.status"
-    >
-      Start searching in the github users
-    </p>
-    <p
-      class="text-blue-400 font-semibold text-lg"
-      v-if="githubData.status === 'searching'"
-    >
-      Searching...
-    </p>
-    <p class="text-red-400 font-semibold text-lg" v-if="githubData.error">
-      {{ githubData.error }}
-    </p>
+    <Messages :message="computeMessage" />
   </div>
 </template>
 
@@ -37,11 +23,12 @@
 import TheHeader from "@/components/TheHeader";
 import SearchBar from "@/components/SearchBar";
 import TheContent from "@/components/TheContent";
-import { reactive } from "@vue/runtime-core";
+import Messages from "@/components/Messages";
+import { computed, reactive } from "@vue/runtime-core";
 import axios from "axios";
 export default {
   name: "Index",
-  components: { TheHeader, SearchBar, TheContent },
+  components: { TheHeader, SearchBar, TheContent, Messages },
   setup() {
     const githubData = reactive({
       data: null,
@@ -58,11 +45,41 @@ export default {
         })
         .catch((err) => {
           githubData.error = err;
-          githubData.status = null;
+          githubData.status = "Error";
         });
     }
+    const computeMessage = computed(() => {
+      let message = {};
+      switch (githubData.status) {
+        case "Error":
+          message = {
+            text: githubData.error,
+            status: 0,
+          };
+          break;
+        case "searching":
+          message = {
+            text: "Searching...",
+            status: 1,
+          };
+          break;
+        case 200:
+          message = {
+            text: "",
+            status: 200,
+          };
+          break;
+        default:
+          message = {
+            text: "Start searching in the github users",
+            status: -1,
+          };
+          break;
+      }
+      return message;
+    });
 
-    return { githubData, getSearchData };
+    return { githubData, getSearchData, computeMessage };
   },
 };
 </script>
